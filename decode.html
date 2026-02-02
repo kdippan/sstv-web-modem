@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoder | SSTV Studio</title>
+    <meta property="og:url" content="https://sstv.dippanbhusal.tech/decode.html">
+    <meta property="og:image" content="https://i.ibb.co/ymJR7LLw/38915.jpg">
+    <meta property="twitter:image" content="https://i.ibb.co/ymJR7LLw/38915.jpg">
+    <link rel="canonical" href="https://sstv.dippanbhusal.tech/decode.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">SSTV_STUDIO</a></li>
+                <li><a href="encode.html">ENCODE</a></li>
+                <li><a href="decode.html" class="active">DECODE</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container mt-2">
+    <h1>Receiver & Visualizer</h1>
+    
+    <div class="grid grid-2">
+        <div class="card">
+            <h2>Input Source</h2>
+            
+            <label style="color: var(--primary-yellow); margin-bottom: 5px; display:block;">Active Mode</label>
+            <div style="background: #111; padding: 10px; border: 1px solid var(--signal-green); color: var(--signal-green); font-family: var(--font-tech); margin-bottom: 1.5rem;">
+                ◉ Robot 36 (36 sec)
+            </div>
+            
+            <div class="mb-2">
+                <label style="color: var(--signal-green);">Method A: Live Microphone</label>
+                <div style="display: flex; gap: 1rem; margin-top: 5px;">
+                    <button id="start-listening" class="btn" style="flex: 1; border-color: var(--signal-green); color: var(--signal-green);">RX ON (MIC)</button>
+                    <button id="stop-listening" class="btn" style="flex: 1; border-color: #555; color: #555;">RX OFF</button>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #333; margin: 1.5rem 0;">
+
+            <div class="mb-2">
+                <label style="color: var(--primary-yellow);">Method B: Audio File</label>
+                <input type="file" id="audio-file-upload" accept="audio/*" style="margin-top: 5px;">
+                <p id="file-status" style="font-size: 0.8rem; color: #666; margin-top: 5px; font-family: var(--font-tech);">Waiting for signal...</p>
+            </div>
+        </div>
+
+        <div class="card crt-container scanlines">
+            <h2>Spectrum Bar Visualizer</h2>
+            <canvas id="spectrum-visualizer" width="600" height="150" style="width: 100%; height: 150px; background: #000; border-bottom: 1px solid #333;"></canvas>
+            
+            <h2 class="mt-2">Decoded Image</h2>
+            <canvas id="sstv-display" width="320" height="240" style="width: 100%; aspect-ratio: 320/240; background: #000; border: 1px solid #333; box-shadow: 0 0 20px rgba(0,0,0,0.5);"></canvas>
+            
+            <button id="download-image-btn" class="btn" style="width: 100%; margin-top: 15px; border-color: #fff; color: #fff;">Save Image</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 2rem 0;">
+        <p style="font-family: var(--font-tech); font-size: 0.9rem; color: #666;">SSTV Studio v3.1</p>
+        <div style="text-align: center;">
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">Developed by <strong style="color: #fff;">Dippan Bhusal</strong></p>
+            <div class="social-links">
+                <a href="https://github.com/KDippan" target="_blank"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="dippanbhusal" data-description="Support me on Buy me a coffee!" data-message="Buy me a coffee" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+<script type="module" src="js/decode.js"></script>
+</body>
+</html>
